@@ -60,6 +60,7 @@ const App = () => {
               < Route path="messages" element={< Messages messageList={messageList} />} />
               < Route path="about" element={< About />} />
               < Route path="*" element={< NotFound />} /> {/* for everything else the * means that NotFound will render */}
+              <Route path="login" element={< LoginForm activateUser={activateUser} />} />
 
             </Routes>
             

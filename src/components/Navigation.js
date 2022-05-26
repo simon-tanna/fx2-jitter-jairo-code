@@ -9,18 +9,19 @@ const Navigation = ({loggedInUser, activateUser}) => {
     return (
         <nav>
             {/* using Link as a react dom component. Use to= instead of href*/}
-            <Link to="/messages">Home</Link>
+            <Link to="/messages">Home</Link>    
             <Link to="/about">About</Link>
             { loggedInUser ?
                 <>  
+                    < Link to="messages/new">New Message</Link>
                     {loggedInUser}
-                    <a href="/" onClick={logout}>Logout</a>
+                    <Link to="/messages" onClick={logout}>Logout</Link>
                 </>
                :
                <>
                     Guest
-                    <a href="/">Login</a>
-                    <a href="/">Sign Up</a>
+                    <Link to="/login">Login</Link>
+                    <Link to="/login">Sign Up</Link>
                </>
                 
             }
