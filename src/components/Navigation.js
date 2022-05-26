@@ -19,7 +19,7 @@ const Navigation = ({ loggedInUser, activateUser }) => {
         <>
           <Link to="messages/new">New Message</Link>
           {loggedInUser}
-          <Link Link to="/messages" onClick={logout}>
+          <Link to="/messages" onClick={logout}>
             Logout
           </Link>
         </>
