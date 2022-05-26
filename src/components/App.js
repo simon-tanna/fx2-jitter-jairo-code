@@ -4,7 +4,7 @@ import MessageForm from './MessageForm'
 import Messages from './Messages'
 import Navigation from './Navigation'
 import initialMessageList from '../data/message-list.json'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom'
 import About from './About'
 import NotFound from './NotFound'
 
@@ -53,9 +53,12 @@ const App = () => {
           <Router>
             {/* To create the route for About, it is wrapped in Routes container. Remember to import Routes and Route */}
             <Routes>
-              < Route path="/" element={<Messages messageList={messageList} />} />
-              < Route path="about" element={<About />} />
-              < Route path="*" element={<NotFound />} /> {/* for everything else the * means that NotFound will render */}
+              < Route path="/" element={< Navigate to="messages" replace />} /> {/* the Navigate to will redirect to messages. replace with replace the history of the redirect so
+              back navigation will not be duplicated */}
+              < Route path="messages" element={< Messages messageList={messageList} />} />
+              < Route path="about" element={< About />} />
+              < Route path="*" element={< NotFound />} /> {/* for everything else the * means that NotFound will render */}
+
             </Routes>
             
           </Router>
