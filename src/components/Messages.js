@@ -1,15 +1,13 @@
-import Message from './Message'
+import Message from "./Message";
 
-const Messages = ({messageList}) => {
-    return (
-        <>
-            {messageList.map(message => 
-                <Message key={message.id} message={message}/>
-            )}
-        </>
-    )
+const Messages = ({ messageList }) => {
+  return (
+    <>
+      {messageList.map((message) => (
+        <Message key={message.id} message={message} />
+      ))}
+    </>
+  );
+};
 
-}
-
-export default Messages
-
+export default Messages;
