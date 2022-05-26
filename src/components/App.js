@@ -4,6 +4,9 @@ import MessageForm from './MessageForm'
 import Messages from './Messages'
 import Navigation from './Navigation'
 import initialMessageList from '../data/message-list.json'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import About from './About'
+import NotFound from './NotFound'
 
 const App = () => {
   const [loggedInUser, setLoggedInUser] = useState("")
@@ -35,14 +38,28 @@ const App = () => {
 
   return (
     <div >
+      {/* Title and Navigation will always be shown. No Routing required. */}
           <h1>Jitter</h1>
           <Navigation loggedInUser={loggedInUser} activateUser={activateUser}/>
-          { !loggedInUser ?
+          {/* { !loggedInUser ?
             <LoginForm activateUser={activateUser}/>
             :
             <MessageForm loggedInUser={loggedInUser} addMessage={addMessage}/>
           }
-          <Messages messageList={messageList}/>
+          <Messages messageList={messageList}/> */}
+
+          {/* BrowserRouter will wrap the components involved in the application routing
+          Router has been defined as an alias (it is a convention) */}
+          <Router>
+            {/* To create the route for About, it is wrapped in Routes container. Remember to import Routes and Route */}
+            <Routes>
+              < Route path="/" element={<Messages messageList={messageList} />} />
+              < Route path="about" element={<About />} />
+              < Route path="*" element={<NotFound />} /> {/* for everything else the * means that NotFound will render */}
+            </Routes>
+            
+          </Router>
+
     </div>
   )
 }
