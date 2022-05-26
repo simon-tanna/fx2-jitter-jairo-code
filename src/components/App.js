@@ -40,7 +40,7 @@ const App = () => {
     <div >
       {/* Title and Navigation will always be shown. No Routing required. */}
           <h1>Jitter</h1>
-          <Navigation loggedInUser={loggedInUser} activateUser={activateUser}/>
+
           {/* { !loggedInUser ?
             <LoginForm activateUser={activateUser}/>
             :
@@ -51,6 +51,8 @@ const App = () => {
           {/* BrowserRouter will wrap the components involved in the application routing
           Router has been defined as an alias (it is a convention) */}
           <Router>
+            {/* To use the Link component from react-router dom. the Navigation component need to be within the Router component */}
+            <Navigation loggedInUser={loggedInUser} activateUser={activateUser}/>
             {/* To create the route for About, it is wrapped in Routes container. Remember to import Routes and Route */}
             <Routes>
               < Route path="/" element={< Navigate to="messages" replace />} /> {/* the Navigate to will redirect to messages. replace with replace the history of the redirect so

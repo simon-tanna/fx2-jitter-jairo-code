@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 const Navigation = ({loggedInUser, activateUser}) => {
     const logout = (e) => {
         e.preventDefault()
@@ -6,10 +8,11 @@ const Navigation = ({loggedInUser, activateUser}) => {
     
     return (
         <nav>
-            <a href="/">Home</a>
-            <a href="/">About</a>
+            {/* using Link as a react dom component. Use to= instead of href*/}
+            <Link to="/messages">Home</Link>
+            <Link to="/about">About</Link>
             { loggedInUser ?
-                <>
+                <>  
                     {loggedInUser}
                     <a href="/" onClick={logout}>Logout</a>
                 </>
