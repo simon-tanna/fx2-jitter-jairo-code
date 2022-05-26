@@ -5,7 +5,7 @@ const Message = ({ message }) => {
     <>
       <h4>{message.text}</h4>
       <p>{message.user}</p>
-      <Link>View Detail</Link>
+      <Link to={`${message.id}`}>View Detail</Link>
     </>
   );
 };

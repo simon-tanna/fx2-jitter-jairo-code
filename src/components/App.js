@@ -12,6 +12,8 @@ import {
 } from "react-router-dom";
 import About from "./About";
 import NotFound from "./NotFound";
+import Message from "./Message";
+import MessageDetail from "./MessageDetail";
 
 const App = () => {
   const [loggedInUser, setLoggedInUser] = useState("");
@@ -57,23 +59,24 @@ const App = () => {
           <Route path="/" element={<Navigate to="messages" replace />} />
           {/* the Navigate to will redirect to messages. replace with replace the history of the redirect so
               back navigation will not be duplicated */}
-          <Route
-            path="messages"
-            element={<Messages messageList={messageList} />}
-          />
-          <Route
-            path="messages/new"
-            element={
-              loggedInUser ? (
-                <MessageForm
-                  loggedInUser={loggedInUser}
-                  addMessage={addMessage}
-                />
-              ) : (
-                <Navigate to="/login" />
-              )
-            }
-          />
+              {/* Here we are creating a general route for messages. the index route wil display the message list within the /messages path wil the subsequent paths being displayed under the messages path */}
+          <Route path="messages">
+            <Route index element={<Messages messageList={messageList}/>}/>
+            <Route
+              path="new"
+              element={
+                loggedInUser ? (
+                  <MessageForm
+                    loggedInUser={loggedInUser}
+                    addMessage={addMessage}
+                  />
+                ) : (
+                  <Navigate to="/login" />
+                )
+              }
+            />
+            <Route path=":messageId" element={<MessageDetail messageList={messageList}/>} />
+          </Route>
           <Route path="about" element={<About />} />
           <Route path="*" element={<NotFound />} />{" "}
           {/* for everything else the * means that NotFound will render */}
