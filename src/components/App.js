@@ -12,7 +12,6 @@ import {
 } from "react-router-dom";
 import About from "./About";
 import NotFound from "./NotFound";
-import Message from "./Message";
 import MessageDetail from "./MessageDetail";
 
 const App = () => {
