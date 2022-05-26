@@ -54,7 +54,7 @@ const App = () => {
         <Navigation loggedInUser={loggedInUser} activateUser={activateUser} />
         {/* To create the route for About, it is wrapped in Routes container. Remember to import Routes and Route */}
         <Routes>
-          <Route path="/" element={<Navigate to="messages" replace />} />{" "}
+          <Route path="/" element={<Navigate to="messages" replace />} />
           {/* the Navigate to will redirect to messages. replace with replace the history of the redirect so
               back navigation will not be duplicated */}
           <Route
