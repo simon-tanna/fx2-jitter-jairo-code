@@ -58,9 +58,9 @@ const App = () => {
           <Route path="/" element={<Navigate to="messages" replace />} />
           {/* the Navigate to will redirect to messages. replace with replace the history of the redirect so
               back navigation will not be duplicated */}
-              {/* Here we are creating a general route for messages. the index route wil display the message list within the /messages path wil the subsequent paths being displayed under the messages path */}
+          {/* Here we are creating a general route for messages. the index route wil display the message list within the /messages path wil the subsequent paths being displayed under the messages path */}
           <Route path="messages">
-            <Route index element={<Messages messageList={messageList}/>}/>
+            <Route index element={<Messages messageList={messageList} />} />
             <Route
               path="new"
               element={
@@ -74,7 +74,10 @@ const App = () => {
                 )
               }
             />
-            <Route path=":messageId" element={<MessageDetail messageList={messageList}/>} />
+            <Route
+              path=":messageId"
+              element={<MessageDetail messageList={messageList} />}
+            />
           </Route>
           <Route path="about" element={<About />} />
           <Route path="*" element={<NotFound />} />{" "}
